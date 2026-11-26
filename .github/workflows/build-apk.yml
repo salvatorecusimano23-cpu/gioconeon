@@ -23,6 +23,11 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Prepare www folder
+        run: |
+          mkdir -p www
+          if [ -f index.html ]; then cp index.html www/; fi
+
       - name: Install Capacitor & Init Android
         run: |
           npm install
